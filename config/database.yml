@@ -94,6 +94,6 @@ test:
 #
 production:
   <<: *default
-  database: Desempregando_DPre_production
-  username: Desempregando_DPre
-  password: <%= ENV['DESEMPREGANDO_DPRE_DATABASE_PASSWORD'] %>
+  database: kayron_Dpre_production
+  username: kayron_Dpre
+  password: <%= ENV['KAYRON_DPRE_DATABASE_PASSWORD'] %>

@@ -1,0 +1,51 @@
+%a.logo{href: "https://front.codes/", target: "_blank"}
+  %img{alt: "", src: "https://assets.codepen.io/1462889/fcy.png"}/
+.section
+  .container
+    .row.full-height.justify-content-center
+      .col-12.text-center.align-self-center.py-5
+        .section.pb-5.pt-5.pt-sm-2.text-center
+          %h6.mb-0.pb-3
+            %span Log In
+            %span Sign Up
+          %input#reg-log.checkbox{name: "reg-log", type: "checkbox"}/
+          %label{for: "reg-log"}
+          .card-3d-wrap.mx-auto
+            .card-3d-wrapper
+              .card-front
+                .center-wrap
+                  .section.text-center
+                    %h4.mb-4.pb-3 Log In
+                    .form-group
+                      %input#logemail.form-style{autocomplete: "off", name: "logemail", placeholder: "Your Email", type: "email"}/
+                      %i.input-icon.uil.uil-at
+                    .form-group.mt-2
+                      %input#logpass.form-style{autocomplete: "off", name: "logpass", placeholder: "Your Password", type: "password"}/
+                      %i.input-icon.uil.uil-lock-alt
+                    %a.btn.mt-4{href: "#"} submit
+                    %p.mb-0.mt-4.text-center
+                      %a.link{href: "#0"} Forgot your password?
+              .card-back
+                .center-wrap
+                  .section.text-center
+                    %h4.mb-4.pb-3 Sign Up
+                    .form-group
+                      %input#logname.form-style{autocomplete: "off", name: "logname", placeholder: "Your Full Name", type: "text"}/
+                      %i.input-icon.uil.uil-user
+                    .form-group.mt-2
+                      %input#logemail.form-style{autocomplete: "off", name: "logemail", placeholder: "Your Email", type: "email"}/
+                      %i.input-icon.uil.uil-at
+                    .form-group.mt-2
+                      %input#logpass.form-style{autocomplete: "off", name: "logpass", placeholder: "Your Password", type: "password"}/
+                      %i.input-icon.uil.uil-lock-alt
+                    %a.btn.mt-4{href: "#"} submit
+
+%h2 Log in
+= simple_form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
+  .form-inputs
+    = f.input :email, required:false , autofocus:true ,input_html:{ autocomplete: "email" } 
+    = f.input :password,required: false,input_html: { autocomplete: "current-password" } 
+    = f.input :remember_me, as: :boolean if devise_mapping.rememberable?
+  .form-actions
+    = f.button :submit, "Log in"
+= render "devise/shared/links"

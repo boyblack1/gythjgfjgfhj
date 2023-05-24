@@ -6,6 +6,17 @@ require 'rails/all'
 # you've limited to :test, :development, or :production.
 Bundler.require(*Rails.groups)
 
+def set_locate_configs_and_timezone
+
+  config.time_zone = "Brasilia"
+  
+  config.i18n.load_path += Dir[Rails.root.join('config', 'locales', '**/*.{rm,yml}').to_s]
+  
+  config.i18n.available_locales = ['pt-BR']
+  
+  config.i18n.default_locale = 'pt-BR'
+  
+  end
 module DesempregandoDpre
   class Application < Rails::Application
     # Initialize configuration defaults for originally generated Rails version.

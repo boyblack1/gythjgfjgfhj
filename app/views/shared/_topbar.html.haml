@@ -37,21 +37,22 @@
           %use{href: "#check2"}
 %nav.navbar.navbar-expand-lg.fixed-top.navbar-dark.bg-dark{"aria-label" => "Main navigation"}
   .container-fluid
-    %a.navbar-brand{href: "#"} Offcanvas navbar
+    %a.navbar-brand{href: "#"} Kayron_Dpre
     %button#navbarSideCollapse.navbar-toggler.p-0.border-0{"aria-label" => "Toggle navigation", type: "button"}
       %span.navbar-toggler-icon
     #navbarsExampleDefault.navbar-collapse.offcanvas-collapse
       %ul.navbar-nav.me-auto.mb-2.mb-lg-0
         %li.nav-item
-          %a.nav-link.active{"aria-current" => "page", href: "#"} Dashboard
+          %a.nav-link.active{"aria-current" => "page", href: "#"} Inicio
         %li.nav-item
-          %a.nav-link{href: "#"} Notifications
+          %a.nav-link{href: "#"} Notificações
         %li.nav-item
-          %a.nav-link{href: "#"} Profile
-        %li.nav-item
-          %a.nav-link{href: "#"} Switch account
+          %a.nav-link{href: "#"} Perfil
+        - unless user_signed_in?
+          %li.nav-item
+            %a.nav-link{href: "#"} Mudar de Conta
         %li.nav-item.dropdown
-          %a.nav-link.dropdown-toggle{"aria-expanded" => "false", "data-bs-toggle" => "dropdown", href: "#"} Settings
+          %a.nav-link.dropdown-toggle{"aria-expanded" => "false", "data-bs-toggle" => "dropdown", href: "#"} Configuração
           %ul.dropdown-menu
             %li
               %a.dropdown-item{href: "#"} Action
@@ -59,6 +60,4 @@
               %a.dropdown-item{href: "#"} Another action
             %li
               %a.dropdown-item{href: "#"} Something else here
-      %form.d-flex{role: "search"}
-        %input.form-control.me-2{"aria-label" => "Search", placeholder: "Search", type: "search"}/
-        %button.btn.btn-outline-success{type: "submit"} buscar 
+     

@@ -1,18 +1,22 @@
-%h2 Sign up
-= simple_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f|
-  = f.error_notification
-  .form-inputs
-    = f.input :email,                       |
-      required: true,                       |
-      autofocus: true,                      |
-      input_html: { autocomplete: "email" } |
-    = f.input :password,                                                                    |
-      required: true,                                                                       |
-      hint: ("#{@minimum_password_length} characters minimum" if @minimum_password_length), |
-      input_html: { autocomplete: "new-password" }                                          |
-    = f.input :password_confirmation,              |
-      required: true,                              |
-      input_html: { autocomplete: "new-password" } |
-  .form-actions
-    = f.button :submit, "Sign up"
-= render "devise/shared/links"
+%link#bootstrap-css{href: "//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css", rel: "stylesheet"}/
+%script{src: "//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"}
+%script{src: "//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"}
+/ ---- Include the above in your HEAD tag --------
+.wrapper.fadeInDown
+  #formContent
+    / Tabs Titles
+    / Icon
+    .fadeIn.first
+    / Login Form
+    %form
+
+    %h2 Sign up
+    = simple_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f|
+      = f.error_notification
+      .form-inputs
+        = f.input :email, required: true,autofocus: true,label: false, input_html: { autocomplete: "email" },  placeholder: "E-mail", type: "text"
+        = f.input :password,required: true,label: false, input_html: { autocomplete: "new-password" }, placeholder: "Senha", type: "text"
+        = f.input :password_confirmation,required: true,label: false, input_html: { autocomplete: "new-password" }, placeholder: "Digite a sena novamente", type: "text"
+      .form-actions
+        = f.button :submit, "Cadastro"
+    = render "devise/shared/links"

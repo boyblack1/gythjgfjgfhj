@@ -7,22 +7,18 @@
     / Tabs Titles
     / Icon
     .fadeIn.first
-      %img#icon{alt: "User Icon", src: "http://danielzawadzki.com/codepen/01/icon.svg"}/
+    %h2 Login
     / Login Form
     %form
-      %input#login.fadeIn.second{name: "login", placeholder: "login", type: "text"}/
-      %input#password.fadeIn.third{name: "login", placeholder: "password", type: "text"}/
-      %input.fadeIn.fourth{type: "submit", value: "Log In"}/
-    / Remind Passowrd
-    #formFooter
-      %a.underlineHover{href: "#"} Forgot Password?
+      = simple_form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
+        .form-inputs
+          = f.input :email, required:false ,label: false,autofocus:true ,input_html:{ autocomplete: "email" }, placeholder: "E-mail", type: "text"
+          = f.input :password,required: false,label: false,input_html: { autocomplete: "current-password" }, placeholder: "Senha", type: "text"
+          = f.input :remember_me, as: :boolean if devise_mapping.rememberable?
+        .form-actions
+          = f.button :submit, "Login"
+      = render "devise/shared/links"
+      / Remind Passowrd
+
       
-%h2 Log in
-= simple_form_for(resource, as: resource_name, url: session_path(resource_name)) do |f|
-  .form-inputs
-    = f.input :email, required:false , autofocus:true ,input_html:{ autocomplete: "email" } 
-    = f.input :password,required: false,input_html: { autocomplete: "current-password" } 
-    = f.input :remember_me, as: :boolean if devise_mapping.rememberable?
-  .form-actions
-    = f.button :submit, "Log in"
-= render "devise/shared/links"
+    

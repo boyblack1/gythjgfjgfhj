@@ -44,13 +44,17 @@
       %ul.navbar-nav.me-auto.mb-2.mb-lg-0
         %li.nav-item
           %a.nav-link.active{"aria-current" => "page", href: "#"} Inicio
-        %li.nav-item
-          %a.nav-link{href: "#"} Notificações
-        %li.nav-item
-          %a.nav-link{href: "#"} Perfil
+        -#%li.nav-item
+          -#%a.nav-link{href: "#"} Notificações
+        - if user_signed_in?
+          %li.nav-item
+            %a.nav-link{href: companies_new_path} Minha Empresa
         - unless user_signed_in?
           %li.nav-item
-            %a.nav-link{href: "#"} Mudar de Conta
+            %a.nav-link{href: user_session_path} Login/Cadastro
+        - if user_signed_in?
+          %li.nav-item
+            = link_to "Sair", destroy_user_session_path, method: :delete, class: 'nav-link'
         %li.nav-item.dropdown
           %a.nav-link.dropdown-toggle{"aria-expanded" => "false", "data-bs-toggle" => "dropdown", href: "#"} Configuração
           %ul.dropdown-menu

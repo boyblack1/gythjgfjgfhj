@@ -48,7 +48,7 @@
           -#%a.nav-link{href: "#"} Notificações
         - if user_signed_in?
           %li.nav-item
-            %a.nav-link{href: companies_new_path} Minha Empresa
+            %a.nav-link{href: dynamic_url_company} Minha Empresa
         - unless user_signed_in?
           %li.nav-item
             %a.nav-link{href: user_session_path} Login/Cadastro

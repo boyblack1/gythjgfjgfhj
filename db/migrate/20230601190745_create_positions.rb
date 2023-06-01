@@ -3,7 +3,8 @@ class CreatePositions < ActiveRecord::Migration[6.0]
     create_table :positions do |t|
       t.string :name
       t.integer :career
-      t.integer :contract
+      t.string :contract
+      t.string :integer
       t.boolean :remote
       t.string :city
       t.string :state

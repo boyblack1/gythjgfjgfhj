@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2023_05_31_202724) do
+ActiveRecord::Schema.define(version: 2023_06_01_190831) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -60,7 +60,8 @@ ActiveRecord::Schema.define(version: 2023_05_31_202724) do
   create_table "positions", force: :cascade do |t|
     t.string "name"
     t.integer "career"
-    t.integer "contract"
+    t.string "contract"
+    t.string "integer"
     t.boolean "remote"
     t.string "city"
     t.string "state"
@@ -86,6 +87,7 @@ ActiveRecord::Schema.define(version: 2023_05_31_202724) do
   end
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
+  add_foreign_key "applicants", "positions"
   add_foreign_key "applicants", "users"
   add_foreign_key "companies", "users"
   add_foreign_key "positions", "companies"

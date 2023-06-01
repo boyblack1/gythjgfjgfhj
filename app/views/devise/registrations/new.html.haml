@@ -4,19 +4,16 @@
 / ---- Include the above in your HEAD tag --------
 .wrapper.fadeInDown
   #formContent
-    / Tabs Titles
-    / Icon
     .fadeIn.first
-    / Login Form
     %form
-
     %h2 Sign up
     = simple_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f|
       = f.error_notification
       .form-inputs
-        = f.input :email, required: true,autofocus: true,label: false, input_html: { autocomplete: "email" },  placeholder: "E-mail", type: "text"
-        = f.input :password,required: true,label: false, input_html: { autocomplete: "new-password" }, placeholder: "Senha", type: "text"
-        = f.input :password_confirmation,required: true,label: false, input_html: { autocomplete: "new-password" }, placeholder: "Digite a sena novamente", type: "text"
+        = f.input :email, required: true, label: false, autofocus: true,  input_html: { autocomplete: "email" }, placeholder: 'E-mail'
+        = f.input :password, required: true, label: false, input_html: { autocomplete: "new-password" }, placeholder: 'Senha'                                
+        = f.input :password_confirmation, required: true, input_html: { autocomplete: "new-password" }, placeholder: 'Repita Senha'
       .form-actions
-        = f.button :submit, "Cadastro"
-    = render "devise/shared/links"
+        = f.button :submit, "Sign up"
+    #formFooter
+      = render "devise/shared/links"
